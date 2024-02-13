@@ -1,20 +1,55 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import LogIn from './screens/LogIn';
+import SignUp from './screens/SignUp';
+
+
+
+
+const Stack = createNativeStackNavigator();
+
 
 export default function App() {
+
+  const [age, setAge] = useState(0)
+
+
+  const ageBaran = ()=>{
+    setAge(age+1)
+
+  }
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+
+
+        {/* <Stack.Screen name='AmarLogInPage' component={LogIn} /> */}
+        {/* <Stack.Screen name='AmarSignUpPage' component={SignUp} /> */}
+
+
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
+
+const ISHTYLE = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  textColor:{
+    color: 'red',
+    height: 500
+  },
+  stretch: {
+    width: 100,
+    height: 100,
   },
 });
